@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .experience-item, .education-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title, .degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company, .school {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .description li {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume-card">
+            <div class="header">
+                <div class="profile-img">👤</div>
+                <h1 class="name">Your Name</h1>
+                <p class="title">Professional Title</p>
+                <div class="contact-info">
+                    <div class="contact-item">📧 your.email@example.com</div>
+                    <div class="contact-item">📱 (555) 123-4567</div>
+                    <div class="contact-item">🌐 linkedin.com/in/yourprofile</div>
+                    <div class="contact-item">📍 Your City, State</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="summary">
+                        A dedicated and results-driven professional with [X] years of experience in [your field]. 
+                        Passionate about [your interests] with a proven track record of [key achievements]. 
+                        Strong background in [key skills] with excellent problem-solving abilities and a commitment to delivering high-quality results.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Technical Skills</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Tools & Platforms</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Soft Skills</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Leadership</span>
+                                <span class="skill-tag">Communication</span>
+                                <span class="skill-tag">Problem Solving</span>
+                                <span class="skill-tag">Team Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">Senior Software Developer</h3>
+                        <p class="company">Tech Company Inc.</p>
+                        <p class="date">January 2022 - Present</p>
+                        <div class="description">
+                            <p>Lead development of web applications serving 100,000+ users daily.</p>
+                            <ul>
+                                <li>Developed and maintained scalable web applications using React and Node.js</li>
+                                <li>Collaborated with cross-functional teams to deliver high-quality software solutions</li>
+                                <li>Mentored junior developers and conducted code reviews</li>
+                                <li>Improved application performance by 40% through optimization techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="job-title">Software Developer</h3>
+                        <p class="company">Previous Company Ltd.</p>
+                        <p class="date">June 2019 - December 2021</p>
+                        <div class="description">
+                            <p>Developed and maintained web applications for client projects.</p>
+                            <ul>
+                                <li>Built responsive web interfaces using HTML, CSS, and JavaScript</li>
+                                <li>Integrated third-party APIs and services</li>
+                                <li>Participated in agile development processes</li>
+                                <li>Contributed to database design and optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <h3 class="degree">Bachelor of Science in Computer Science</h3>
+                        <p class="school">University Name</p>
+                        <p class="date">Graduated: May 2019</p>
+                        <div class="description">
+                            <p>Relevant coursework: Data Structures, Algorithms, Database Systems, Web Development</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Projects</h2>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">E-Commerce Platform</h3>
+                        <p class="company">Personal Project</p>
+                        <p class="date">2023</p>
+                        <div class="description">
+                            <p>Full-stack e-commerce application built with React, Node.js, and MongoDB.</p>
+                            <ul>
+                                <li>Implemented user authentication and authorization</li>
+                                <li>Created shopping cart and payment processing functionality</li>
+                                <li>Deployed on AWS with automated CI/CD pipeline</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="download-btn" onclick="window.print(); return false;">📄 Download PDF</a>
+
+    <script>
+        // Add smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effects for skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
