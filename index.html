@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuxiang Zhang - Senior Software Engineer</title>
+    <meta name="description" content="Yuxiang Zhang - Senior Software Engineer with experience in distributed systems, microservices, and high-performance backend development at eBay, OpenText, and Coinbase.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .qualification-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .qualification-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .qualification-item::before {
+            content: '●';
+            color: #3498db;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .experience-item, .education-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title, .degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company, .school {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-bottom: 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .company-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .ebay-icon {
+            background: #f5f5f5;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9IiNEMkQyRDIiLz4KPHBhdGggZD0iTTcyIDI1NkM3MiAyMTkuMzMzIDkwLjc0NjcgMTg1IDEyMCAxODVDMTQ5LjI1MyAxODUgMTY4IDE5Ni4xMzMgMTY4IDE5Ni4xMzNWMzE2QzE2OCAzMTYgMTQ5LjI1MyAzMjcgMTIwIDMyN0M5MC43NDY3IDMyNyA3MiAyOTIuNjY3IDcyIDI1NloiIGZpbGw9IiNFNTMyMzgiLz4KPHBhdGggZD0iTTcyIDI1NkM3MiAyNDYgNzggMjM2IDg2IDIzNkMxMDUgMjM2IDEwNSAyNDYgMTA1IDI1NkMxMDUgMjY2IDEwNSAyNzYgODYgMjc2Qzc4IDI3NiA3MiAyNjYgNzIgMjU2WiIgZmlsbD0id2hpdGUiLz4KPHN0eWxlPgouZTEgeyBmaWxsOiAjZTUzMjM4OyB9Ci5iMSB7IGZpbGw6ICMwMDcyZmY7IH0KLmExIHsgZmlsbDogI2ZmYjMwMDsgfQouZzEgeyBmaWxsOiAjODZiODE3OyB9Cjwvc3R5bGU+CjxnPgo8cGF0aCBjbGFzcz0iZTEiIGQ9Ik04NSAyMTBjLTIwIDAtMzYgMTQtMzYgMzFzMTYgMzEgMzYgMzFjMTMuNSAwIDI0LTYuNSAzMC0xNmgtMTRjLTQgNS0xMCA4LTE2IDgtMTAgMC0xOC04LTE4LTE4aDQ5Yy0xLTE2LTEzLTM2LTMxLTM2em0tMTggMjVjMi0xMCA5LTE2IDE4LTE2czE2IDYgMTggMTZoLTM2eiIvPgo8cGF0aCBjbGFzcz0iYjEiIGQ9Im0xNjIgMjEwYy0xNSAwLTI2IDctMzEgMTZ2LTE0aC0xNHY1OWgxNHYtMzNjMC0xMSA4LTIwIDE5LTIwczE5IDkgMTkgMjB2MzNoMTR2LTM5YzAtMTYtMTAtMjItMjEtMjJ6Ii8+CjxwYXRoIGNsYXNzPSJhMSIgZD0iTTI0MSAyNDFjMC0yMCAxNC0zMSAzMC0zMSAxMyAwIDI0IDcgMjggMThoMTVjLTUtMTUtMTktMjgtNDMtMjgtMjcgMC00NyAyMC00NyA0MXMyMCA0MCA0NyA0MGMyNCAwIDM4LTEyIDQzLTI3aC0xNWMtNCA5LTE1IDE2LTI4IDE2LTE2IDAtMzAtMTEtMzAtMzF6Ii8+CjxwYXRoIGNsYXNzPSJhMSIgZD0iTTMzMyAyMTBjLTIwIDAtMzYgMTQtMzYgMzFzMTYgMzEgMzYgMzFjMTMuNSAwIDI0LTYuNSAzMC0xNmgtMTRjLTQgNS0xMCA4LTE2IDgtMTAgMC0xOC04LTE4LTE4aDQ5Yy0xLTE2LTEzLTM2LTMxLTM2em0tMTggMjVjMi0xMCA5LTE2IDE4LTE2czE2IDYgMTggMTZoLTM2eiIvPgo8cGF0aCBjbGFzcz0iZzEiIGQ9Im0zOTUgMjQxYzAtMjAgMTQtMzEgMzAtMzEgMTMgMCAyNCA3IDI4IDE4aDE1Yy01LTE1LTE5LTI4LTQzLTI4LTI3IDAtNDcgMjAtNDcgNDFzMjAgNDAgNDcgNDBjMjQgMCAzOC0xMiA0My0yN2gtMTVjLTQgOS0xNSAxNi0yOCAxNi0xNiAwLTMwLTExLTMwLTMxeiIvPgo8L2c+Cjwvc3ZnPgo=');
+            border: 1px solid #e0e0e0;
+        }
+
+        .opentext-icon {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .opentext-icon::before {
+            content: "📊";
+            font-size: 14px;
+        }
+
+        .coinbase-icon {
+            background: #0052ff;
+            color: white;
+        }
+
+        .coinbase-icon::before {
+            content: "₿";
+            font-size: 16px;
+        }
+
+        .waterloo-icon {
+            background: #ffd54f;
+            color: #333;
+        }
+
+        .waterloo-icon::before {
+            content: "🎓";
+            font-size: 14px;
+        }
+
+        .location {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .description li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .achievement {
+            background: #e8f5e8;
+            border-left: 3px solid #27ae60;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .achievement::before {
+            content: '🏆';
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 40px 20px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume-card">
+            <div class="header">
+                <div class="profile-img">YZ</div>
+                <h1 class="name">Yuxiang Zhang</h1>
+                <p class="title">Senior Software Engineer</p>
+                <div class="contact-info">
+                    <div class="contact-item">📧 yuxiang.zhang505@gmail.com</div>
+                    <div class="contact-item">📱 519-781-4505</div>
+                    <div class="contact-item">📍 Toronto, Canada</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <section class="section">
+                    <h2 class="section-title">Summary of Qualifications</h2>
+                    <div class="qualification-item">
+                        Experience in building <span class="highlight">large-scale distributed trading systems</span> and microservices architecture using gRPC protocol
+                    </div>
+                    <div class="qualification-item">
+                        Integrated, refactored, and troubleshooted services APIs in a production system with over <span class="highlight">8 million active users</span>, enhancing performance and reliability
+                    </div>
+                    <div class="qualification-item">
+                        Industry experience in building scalable and performant distributed services using <span class="highlight">Java and Spring Boot</span> framework
+                    </div>
+                    <div class="qualification-item">
+                        Familiarity with platform/tools such as <span class="highlight">Docker, Datadog, Kubernetes, Jenkins, Grafana</span>
+                    </div>
+                    <div class="qualification-item">
+                        Proficient in programming languages: <span class="highlight">Java, Golang, Ruby, Python, SQL</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Programming Languages</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Golang</span>
+                                <span class="skill-tag">Ruby</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Frameworks & Technologies</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Spring Boot</span>
+                                <span class="skill-tag">gRPC</span>
+                                <span class="skill-tag">Microservices</span>
+                                <span class="skill-tag">Distributed Systems</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Tools & Platforms</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">Jenkins</span>
+                                <span class="skill-tag">Datadog</span>
+                                <span class="skill-tag">Grafana</span>
+                                <span class="skill-tag">GCP</span>
+                                <span class="skill-tag">LoadRunner</span>
+                                <span class="skill-tag">JMeter</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <h3 class="job-title">Senior Software Engineer</h3>
+                        <p class="company">
+                            <span class="company-icon ebay-icon"></span>
+                            eBay
+                        </p>
+                        <p class="location">Toronto, Canada</p>
+                        <p class="date">September 2024 – Present</p>
+                        <div class="description">
+                            <ul>
+                                <li>Backend engineer in the <strong>Auction Team</strong>, responsible for core auction services using Java and Spring Boot</li>
+                                <li>Contributed to <span class="highlight">latency optimization for eBay Live</span>, reducing bid placement latency to improve real-time user experience</li>
+                                <li>Developed and launched the <strong>Popcorn Bidding feature</strong>, enabling automatic auction time extensions in the final minutes when new bids are placed, driving higher engagement and fairness</li>
+                                <li>Focused on high-performance, scalable backend systems and features directly impacting <span class="highlight">user experience and revenue growth</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="job-title">Software Developer II</h3>
+                        <p class="company">
+                            <span class="company-icon opentext-icon"></span>
+                            OpenText
+                        </p>
+                        <p class="location">Waterloo, Canada</p>
+                        <p class="date">April 2023 – August 2024</p>
+                        <div class="description">
+                            <ul>
+                                <li>Developed and maintained an <strong>internal log analysis tool</strong> for the Performance Engineering team using Ruby, <span class="highlight">reducing analysis time by 65%</span></li>
+                                <li>Designed and directed the creation of an <strong>automation test framework</strong> using GCP, Docker, and Kubernetes, <span class="highlight">improving test efficiency by 30%</span> and ensuring optimal configuration of all products and infrastructure components</li>
+                                <li>Monitored production resource usage and performed <strong>bottleneck analysis</strong> using LoadRunner and JMeter, integrating Grafana dashboards to visualize metrics, resulting in significant improvement in proactive issue detection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="job-title">Software Engineer</h3>
+                        <p class="company">
+                            <span class="company-icon coinbase-icon"></span>
+                            Coinbase
+                        </p>
+                        <p class="location">Toronto, Canada</p>
+                        <p class="date">March 2022 – March 2023</p>
+                        <div class="description">
+                            <ul>
+                                <li>Designed and implemented a <strong>new service component</strong> using Ruby and Golang, migrating and handling <span class="highlight">50k+ recurring trades per day</span>. Decomposed 99.8% of sensitive recurring trade flow into a Golang service, <span class="highlight">reducing latency by 2%</span> and <span class="highlight">increasing developer velocity by 15%</span></li>
+                                <li>Led cross-team efforts to mitigate and resolve <strong>10+ incidents</strong> as the primary on-call engineer. Set up Datadog alerts for multiple metrics, ensuring trade flow reliability and contributing to incident retrospectives for knowledge sharing</li>
+                                <li>Participated in the development and decomposition of the <strong>retail trading service</strong>, optimizing the gRPC retry policy, <span class="highlight">increasing the success rate of pricing requests by 10%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <h3 class="degree">Bachelor of Computer Science (Co-op Honours)</h3>
+                        <p class="school">
+                            <span class="company-icon waterloo-icon"></span>
+                            University of Waterloo
+                        </p>
+                        <p class="location">Waterloo, Canada</p>
+                        <p class="date">2016 – 2021</p>
+                        <div class="description">
+                            <div class="achievement">President's Scholarship of Distinction and President's Research Award</div>
+                            <div class="achievement">Term Dean's Honors List – for average of 87% or higher</div>
+                            <div class="achievement">Graduated with Distinction</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="download-btn" onclick="window.print(); return false;">📄 Download PDF</a>
+
+    <script>
+        // Add smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effects for skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add dynamic year update
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth() + 1; // JavaScript months are 0-indexed
+            
+            // Update eBay position to show current date
+            const ebayDate = document.querySelector('.experience-item .date');
+            if (ebayDate && ebayDate.textContent.includes('Present')) {
+                ebayDate.textContent = `September 2024 – Present (${currentYear})`;
+            }
+        });
+    </script>
+</body>
+</html>
